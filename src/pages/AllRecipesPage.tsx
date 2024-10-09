@@ -28,7 +28,7 @@ const AllRecipesPage: React.FC = () => {
     Error
   >(['categories'], fetchCategories);
 
-  const { data: meals, isLoading } = useQuery<Meal[], Error>(
+  const { data: meals = [], isLoading } = useQuery<Meal[], Error>(
     ['meals', search, selectedCategory],
     () => fetchMeals(selectedCategory, search),
     {
@@ -52,10 +52,8 @@ const AllRecipesPage: React.FC = () => {
   }
 
   const filteredMeals: Meal[] = selectedCategory
-    ? Array.isArray(meals)
-      ? meals.filter(meal => meal.strCategory === selectedCategory)
-      : []
-    : (meals as Meal[]); // Перетворюємо meals на Meal[], якщо воно не є масивом
+    ? meals.filter(meal => meal.strCategory === selectedCategory)
+    : meals;
 
   const indexOfLastMeal = currentPage * mealsPerPage;
   const indexOfFirstMeal = indexOfLastMeal - mealsPerPage;
