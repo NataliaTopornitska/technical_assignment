@@ -31,13 +31,11 @@ const AllRecipesPage: React.FC = () => {
     queryFn: fetchCategories,
   });
 
-  const { data: meals = [], isLoading } = useQuery<Meal[], Error>(
-    ['meals', search, selectedCategory],
-    () => fetchMeals(selectedCategory, search),
-    {
-      enabled: Boolean(selectedCategory || search),
-    },
-  );
+  const { data: meals = [], isLoading } = useQuery<Meal[], Error>({
+    queryKey: ['meals', search, selectedCategory],
+    queryFn: () => fetchMeals(selectedCategory, search),
+    enabled: Boolean(selectedCategory || search),
+  });
 
   const toggleSelect = (id: string) => {
     setSelectedRecipes(prev =>
