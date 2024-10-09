@@ -26,7 +26,10 @@ const AllRecipesPage: React.FC = () => {
   const { data: categories = [], isLoading: isLoadingCategories } = useQuery<
     Category[],
     Error
-  >(['categories'], fetchCategories);
+  >({
+    queryKey: ['categories'],
+    queryFn: fetchCategories,
+  });
 
   const { data: meals = [], isLoading } = useQuery<Meal[], Error>(
     ['meals', search, selectedCategory],
