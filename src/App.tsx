@@ -1,21 +1,41 @@
 import React from 'react';
-import './App.scss';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import AllRecipesPage from './pages/AllRecipesPage';
+import RecipeDetailPage from './pages/RecipeDetailPage';
+import SelectedRecipesPage from './pages/SelectedRecipesPage';
 
-interface Props {
-  onClick: () => void;
-  children: React.ReactNode;
+interface Meal {
+  idMeal: string;
+  strMeal: string;
+  ingredients: string[];
 }
 
-export const Provider: React.FC<Props> = React.memo(({ onClick, children }) => (
-  <button type="button" onClick={onClick}>
-    {children}
-  </button>
-));
+const meals: Meal[] = [];
+const selectedRecipes: string[] = [];
 
-export const App: React.FC = () => {
+const queryClient = new QueryClient();
+
+const App: React.FC = () => {
   return (
-    <div className="starter">
-      <Provider onClick={() => ({})}>TodoList</Provider>
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <Router>
+        <Routes>
+          <Route path="/" element={<AllRecipesPage />} />
+          <Route path="/recipe/:id" element={<RecipeDetailPage />} />
+          <Route
+            path="/selected"
+            element={
+              <SelectedRecipesPage
+                selectedRecipes={selectedRecipes}
+                meals={meals}
+              />
+            }
+          />
+        </Routes>
+      </Router>
+    </QueryClientProvider>
   );
 };
+
+export default App;
