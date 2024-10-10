@@ -1,0 +1,124 @@
+.App {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  text-align: center;
+}
+
+.meal-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.meal-card-preview {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+  width: 180px;
+}
+
+.meal-card-preview:hover {
+  transform: scale(1.05);
+}
+
+.meal-card-preview img {
+  max-width: 100%;
+  height: auto;
+}
+
+.meal-card-preview p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+label {
+  margin-right: 10px;
+}
+
+select {
+  padding: 5px;
+  margin-bottom: 20px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  margin: 0 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.pagination button.disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.pagination button.active {
+  font-weight: bold;
+  color: blue;
+}
+
+.back-button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.back-button:hover {
+  background-color: #0056b3;
+}
+
+.instructions {
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.ingredients-list {
+  list-style: none;
+  padding: 0;
+}
+
+.ingredient-item {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.meal-card img {
+  max-width: 500px;
+  height: auto; 
+}
+
+@media (max-width: 768px) {
+  .meal-card img {
+    max-width: 300px;
+  }
+
+  .meal-card {
+    padding: 10px;
+  }
+
+  .meal-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
