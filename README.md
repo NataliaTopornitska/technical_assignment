@@ -1,9 +1,30 @@
-# React TypeScript Starter Pack
+# Recipes App
 
-To use this template click `Use this template`
+ [DEMO LINK](https://nataliatopornitska.github.io/technical_assignment/)
 
-### Available Scripts
+The following requirements have been met:
 
-`Deploy` - available to deploy your application to gh-pages
+- Display of recipes
+- Display of a single recipe
+- Recipes filtering by category
+- Pagination
+- Debounced search
+- Several recipes select and count the ingredients needed to prepare them. You need to display basic information about the selected recipes and combine their ingredients into one list
+- 
 
-`SCSS Preprocessor` - available to write your styles with modern style language
+## Technologies Utilized
+
+The task includes the following technologies:
+
+- [TheMealDB] як `API`
+- `React`
+- `TypeScript`
+- `State manager`
+- Git
+- GitHub
+
+## Additional launch instructions:
+
+- git clone https://github.com/NataliaTopornitska/todo-app
+- npm install
+- npm start
