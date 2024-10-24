@@ -25,6 +25,6 @@ The task includes the following technologies:
 
 ## Additional launch instructions:
 
-- git clone https://github.com/NataliaTopornitska/todo-app
+- git clone https://github.com/NataliaTopornitska/technical_assignment
 - npm install
 - npm start
